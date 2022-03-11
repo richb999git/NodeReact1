@@ -13,9 +13,21 @@ export default function AskAndGreet() {
         event.preventDefault();
         setName('')
 
-        fetch(`/api/greeting?name=${encodeURIComponent(name)}`)
+        fetch(`/api/greeting`, {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name: name})
+        })
             .then(response => response.json())
             .then(jsonResponse => setGreeting(jsonResponse.greeting))
+
+        // Original using GET
+        // fetch(`/api/greeting?name=${encodeURIComponent(name)}`)
+        //     .then(response => response.json())
+        //     .then(jsonResponse => setGreeting(jsonResponse.greeting))
 
         // Alternative using await (async needed at function top level)
         // const respose = await fetch(`/api/greeting?name=${encodeURIComponent(name)}`)
