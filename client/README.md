@@ -72,3 +72,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ## My notes
 This isn't on GitHub.
 https://node-react-combine-1.herokuapp.com/
+"proxy": "http://localhost:3001", in package.json of react client is used for development only.
+The build folder is used for production.
