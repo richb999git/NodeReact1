@@ -5,3 +5,5 @@ https://node-react-combine-1.herokuapp.com/
 The build folder is used for production.
 
 See info on getting body - now just use express (as body parser now part of express).
+
+In development run both servers (npm start from client and server folders)
