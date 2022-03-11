@@ -8,10 +8,16 @@ const app = express();
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
+app.get('/api/greeting', (req, res) => {
+    const name = req.query.name || 'World';
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify({ greeting: `Hello ${name}!` }));
+});
+
 // Handle GET requests to /api route
-app.get("/api", (req, res) => {
+app.get("/api/test", (req, res) => {
     res.json({ message: `Hello from server! on port ${PORT}` });
-  });
+});
 
 // All other GET requests not handled before will return our React app
 app.get('*', (req, res) => {
